@@ -1,0 +1,733 @@
+{
+  "root_attributes": {
+    "Acquisition_Date": "b'04SEP2024'",
+    "Acquisition_End_Time": "b'04-SEP-2024T10:42:29'",
+    "Acquisition_Start_Time": "b'04-SEP-2024T10:15:35'",
+    "Acquisition_Time_in_GMT": "b'1015'",
+    "Attitude_Source": "b'STAR'",
+    "Datum": "b'WGS84'",
+    "Ellipsoid": "b'WGS84'",
+    "FastScan_Linearity_Enabled": "b'no'",
+    "Ground_Station": "b'BES,SAC/ISRO,Ahmedabad,INDIA.'",
+    "HDF_Product_File_Name": "b'3RIMG_04SEP2024_1015_L1C_ASIA_MER_V01R00.h5'",
+    "Imaging_Mode": "b'FULL FRAME'",
+    "Nominal_Altitude(km)": 36000.0,
+    "Nominal_Central_Point_Coordinates(degrees)_Latitude_Longitude": [
+      0.0,
+      74.0
+    ],
+    "Observed_Altitude(km)": 35752.815622,
+    "Output_Format": "b'hdf5-1.8.8'",
+    "Processing_Level": "b'L1C'",
+    "Product_Creation_Time": "b'2024-09-04T16:19:55'",
+    "Product_Type": "b'SECTOR'",
+    "Radiometric_Calibration_Type": "b'LAB CALIBRATED'",
+    "Sat_Azimuth(Degrees)": 304.169922,
+    "Sat_Elevation(Degrees)": 89.893982,
+    "Satellite_Name": "b'INSAT-3DR'",
+    "Sensor_Id": "b'IMG'",
+    "Sensor_Name": "b'IMAGER'",
+    "SlowScan_Linearity_Enabled": "b'no'",
+    "Software_Version": "b'1.0'",
+    "Station_Id": "b'BES'",
+    "Sun_Azimuth(Degrees)": 278.859985,
+    "Sun_Elevation(Degrees)": 38.531284,
+    "Unique_Id": "b'3RIMG_04SEP2024_1015_ASIA_MER'",
+    "conventions": "b'CF-1.6'",
+    "institute": "b'BES,SAC/ISRO,Ahmedabad,INDIA.'",
+    "left_longitude": 44.5,
+    "lower_latitude": -10.0,
+    "right_longitude": 110.0,
+    "source": "b'BES,SAC/ISRO,Ahmedabad,INDIA.'",
+    "title": "b'3RIMG_04SEP2024_1015_ASIA_MER_L1C'",
+    "upper_latitude": 45.5
+  },
+  "datasets": {
+    "GreyCount": {
+      "shape": [
+        1024
+      ],
+      "dtype": "int32",
+      "attributes": {
+        "CLASS": "b'DIMENSION_SCALE'",
+        "REFERENCE_LIST": [
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ]
+        ]
+      }
+    },
+    "IMG_MIR": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 1023,
+        "bandwidth": 0.20000000298023224,
+        "bits_per_pixel": 10,
+        "central_wavelength": 3.9070000648498535,
+        "grid_mapping": "b'Projection_Information'",
+        "invert": "b'true'",
+        "lab_radiance_add_offset": -0.004833589773625135,
+        "lab_radiance_add_offset_gsics": -0.013938900083303452,
+        "lab_radiance_quad": -2.00028e-12,
+        "lab_radiance_quad_gsics": -2.32248e-12,
+        "lab_radiance_scale_factor": 0.0002947089960798621,
+        "lab_radiance_scale_factor_gsics": 0.00034218101063743234,
+        "long_name": "b'Middle Infrared Count'",
+        "radiance_units": "b'mW.cm-2.sr-1.micron-1'",
+        "resolution": 4.0,
+        "resolution_unit": "b'km'",
+        "wavelength_unit": "b'micron'"
+      }
+    },
+    "IMG_MIR_RADIANCE": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Middle Infrared Radiance'",
+        "units": "b'mW.cm-2.sr-1.micron-1'"
+      }
+    },
+    "IMG_MIR_TEMP": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Middle Infrared Brightness Temperature'",
+        "units": "b'K'"
+      }
+    },
+    "IMG_SWIR": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 0,
+        "bandwidth": 0.15000000596046448,
+        "bits_per_pixel": 10,
+        "central_wavelength": 1.625,
+        "grid_mapping": "b'Projection_Information'",
+        "invert": "b'false'",
+        "lab_radiance_add_offset": -0.19753199815750122,
+        "lab_radiance_add_offset_gsics": -0.19753199815750122,
+        "lab_radiance_quad": 0.0,
+        "lab_radiance_quad_gsics": 0.0,
+        "lab_radiance_scale_factor": 0.008130200207233429,
+        "lab_radiance_scale_factor_gsics": 0.008130200207233429,
+        "long_name": "b'Shortwave Infrared Count'",
+        "radiance_units": "b'mW.cm-2.sr-1.micron-1'",
+        "resolution": 4.0,
+        "resolution_unit": "b'km'",
+        "wavelength_unit": "b'micron'"
+      }
+    },
+    "IMG_SWIR_RADIANCE": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'false'",
+        "long_name": "b'Shortwave Infrared Radiance'",
+        "units": "b'mW.cm-2.sr-1.micron-1'"
+      }
+    },
+    "IMG_TIR1": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 1023,
+        "bandwidth": 1.0,
+        "bits_per_pixel": 10,
+        "central_wavelength": 10.78499984741211,
+        "grid_mapping": "b'Projection_Information'",
+        "invert": "b'true'",
+        "lab_radiance_add_offset": -0.014871800318360329,
+        "lab_radiance_add_offset_gsics": -0.20824100077152252,
+        "lab_radiance_quad": -4.23297e-07,
+        "lab_radiance_quad_gsics": -6.33107e-07,
+        "lab_radiance_scale_factor": 0.0017001000232994556,
+        "lab_radiance_scale_factor_gsics": 0.0025427700020372868,
+        "long_name": "b'Thermal Infrared1 Count'",
+        "radiance_units": "b'mW.cm-2.sr-1.micron-1'",
+        "resolution": 4.0,
+        "resolution_unit": "b'km'",
+        "wavelength_unit": "b'micron'"
+      }
+    },
+    "IMG_TIR1_RADIANCE": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Thermal Infrared1 Radiance'",
+        "units": "b'mW.cm-2.sr-1.micron-1'"
+      }
+    },
+    "IMG_TIR1_TEMP": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Thermal Infrared1 Brightness Temperature'",
+        "units": "b'K'"
+      }
+    },
+    "IMG_TIR2": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 1023,
+        "bandwidth": 1.0,
+        "bits_per_pixel": 10,
+        "central_wavelength": 11.965999603271484,
+        "grid_mapping": "b'Projection_Information'",
+        "invert": "b'true'",
+        "lab_radiance_add_offset": -0.012393999844789505,
+        "lab_radiance_add_offset_gsics": -0.19021299481391907,
+        "lab_radiance_quad": -4.33804e-07,
+        "lab_radiance_quad_gsics": -6.96453e-07,
+        "lab_radiance_scale_factor": 0.0015407099854201078,
+        "lab_radiance_scale_factor_gsics": 0.0024735399056226015,
+        "long_name": "b'Thermal Infrared2 Count'",
+        "radiance_units": "b'mW.cm-2.sr-1.micron-1'",
+        "resolution": 4.0,
+        "resolution_unit": "b'km'",
+        "wavelength_unit": "b'micron'"
+      }
+    },
+    "IMG_TIR2_RADIANCE": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Thermal Infrared2 Radiance'",
+        "units": "b'mW.cm-2.sr-1.micron-1'"
+      }
+    },
+    "IMG_TIR2_TEMP": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Thermal Infrared2 Brightness Temperature'",
+        "units": "b'K'"
+      }
+    },
+    "IMG_VIS": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 0,
+        "bandwidth": 0.25,
+        "bits_per_pixel": 10,
+        "central_wavelength": 0.6499999761581421,
+        "grid_mapping": "b'Projection_Information'",
+        "invert": "b'false'",
+        "lab_radiance_add_offset": -3.4358999729156494,
+        "lab_radiance_add_offset_gsics": -3.4358999729156494,
+        "lab_radiance_quad": 0.0,
+        "lab_radiance_quad_gsics": 0.0,
+        "lab_radiance_scale_factor": 0.07970300316810608,
+        "lab_radiance_scale_factor_gsics": 0.07970300316810608,
+        "long_name": "b'Visible Count'",
+        "radiance_units": "b'mW.cm-2.sr-1.micron-1'",
+        "resolution": 4.0,
+        "resolution_unit": "b'km'",
+        "wavelength_unit": "b'micron'"
+      }
+    },
+    "IMG_VIS_ALBEDO": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "invert": "b'false'",
+        "long_name": "b'Visible Albedo'",
+        "units": "b'%'"
+      }
+    },
+    "IMG_VIS_RADIANCE": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'false'",
+        "long_name": "b'Visible Radiance'",
+        "units": "b'mW.cm-2.sr-1.micron-1'"
+      }
+    },
+    "IMG_WV": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 1023,
+        "bandwidth": 0.6000000238418579,
+        "bits_per_pixel": 10,
+        "central_wavelength": 6.866000175476074,
+        "grid_mapping": "b'Projection_Information'",
+        "invert": "b'true'",
+        "lab_radiance_add_offset": -0.011288999579846859,
+        "lab_radiance_add_offset_gsics": -0.037025101482868195,
+        "lab_radiance_quad": -2.06407e-07,
+        "lab_radiance_quad_gsics": -2.73136e-07,
+        "lab_radiance_scale_factor": 0.0011383499950170517,
+        "lab_radiance_scale_factor_gsics": 0.0015063600149005651,
+        "long_name": "b'Water Vapor Count'",
+        "radiance_units": "b'mW.cm-2.sr-1.micron-1'",
+        "resolution": 4.0,
+        "resolution_unit": "b'km'",
+        "wavelength_unit": "b'micron'"
+      }
+    },
+    "IMG_WV_RADIANCE": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Water Vapor Radiance'",
+        "units": "b'mW.cm-2.sr-1.micron-1'"
+      }
+    },
+    "IMG_WV_TEMP": {
+      "shape": [
+        1024
+      ],
+      "dtype": "float32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "_FillValue": 999.0,
+        "invert": "b'true'",
+        "long_name": "b'Water Vapor Brightness Temperature'",
+        "units": "b'K'"
+      }
+    },
+    "Projection_Information": {
+      "shape": [
+        1
+      ],
+      "dtype": "int32",
+      "attributes": {
+        "DIMENSION_LIST": "[<HDF5 object reference>]",
+        "false_easting": 0.0,
+        "false_northing": 0.0,
+        "grid_mapping_name": "b'mercator'",
+        "longitude_of_projection_origin": 77.25,
+        "lower_left_lat_lon(degrees)": [
+          -10.0,
+          44.5
+        ],
+        "lower_right_lat_lon(degrees)": [
+          -10.0,
+          110.0
+        ],
+        "semi_major_axis": 6378137.0,
+        "semi_minor_axis": 6356752.3142,
+        "standard_parallel": 17.75,
+        "upper_left_lat_lon(degrees)": [
+          45.5,
+          44.5
+        ],
+        "upper_left_xy(meters)": [
+          -3473242.733735,
+          5401854.420193
+        ],
+        "upper_right_lat_lon(degrees)": [
+          45.5,
+          110.0
+        ]
+      }
+    },
+    "Sat_Azimuth": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 65535,
+        "add_offset": 0.0,
+        "grid_mapping": "b'Projection_Information'",
+        "long_name": "b'Satellite Azimuth'",
+        "scale_factor": 0.009999999776482582,
+        "units": "b'degree'"
+      }
+    },
+    "Sat_Elevation": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "int16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 32767,
+        "add_offset": 0.0,
+        "grid_mapping": "b'Projection_Information'",
+        "long_name": "b'Satellite Elevation'",
+        "scale_factor": 0.009999999776482582,
+        "units": "b'degree'"
+      }
+    },
+    "Sun_Azimuth": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "uint16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 65535,
+        "add_offset": 0.0,
+        "grid_mapping": "b'Projection_Information'",
+        "long_name": "b'Sun Azimuth'",
+        "scale_factor": 0.009999999776482582,
+        "units": "b'degree'"
+      }
+    },
+    "Sun_Elevation": {
+      "shape": [
+        1,
+        1616,
+        1737
+      ],
+      "dtype": "int16",
+      "attributes": {
+        "DIMENSION_LIST": [
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]",
+          "[<HDF5 object reference>]"
+        ],
+        "_FillValue": 32767,
+        "add_offset": 0.0,
+        "grid_mapping": "b'Projection_Information'",
+        "long_name": "b'Sun Elevation'",
+        "scale_factor": 0.009999999776482582,
+        "units": "b'degree'"
+      }
+    },
+    "X": {
+      "shape": [
+        1737
+      ],
+      "dtype": "float64",
+      "attributes": {
+        "CLASS": "b'DIMENSION_SCALE'",
+        "REFERENCE_LIST": [
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ],
+          [
+            "<HDF5 object reference>",
+            2
+          ]
+        ],
+        "long_name": "b'x coordinate of projection'",
+        "standard_name": "b'projection_x_coordinate'",
+        "units": "b'm'"
+      }
+    },
+    "Y": {
+      "shape": [
+        1616
+      ],
+      "dtype": "float64",
+      "attributes": {
+        "CLASS": "b'DIMENSION_SCALE'",
+        "REFERENCE_LIST": [
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ],
+          [
+            "<HDF5 object reference>",
+            1
+          ]
+        ],
+        "long_name": "b'y coordinate of projection'",
+        "standard_name": "b'projection_y_coordinate'",
+        "units": "b'm'"
+      }
+    },
+    "proj_dim": {
+      "shape": [
+        1
+      ],
+      "dtype": "int32",
+      "attributes": {
+        "CLASS": "b'DIMENSION_SCALE'",
+        "REFERENCE_LIST": [
+          "<HDF5 object reference>",
+          0
+        ]
+      }
+    },
+    "time": {
+      "shape": [
+        1
+      ],
+      "dtype": "float64",
+      "attributes": {
+        "CLASS": "b'DIMENSION_SCALE'",
+        "REFERENCE_LIST": [
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ],
+          [
+            "<HDF5 object reference>",
+            0
+          ]
+        ],
+        "units": "b'minutes since 2000-01-01 00:00:00'"
+      }
+    }
+  },
+  "file_info": {
+    "filename": "3RIMG_04SEP2024_1015_L1C_ASIA_MER_V01R00.h5",
+    "extracted_date": "2024-12-04T23:41:01.273318"
+  }
+}
