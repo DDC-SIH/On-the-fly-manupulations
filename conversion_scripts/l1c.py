@@ -1,53 +1,107 @@
-from osgeo import gdal
+import h5py
+import numpy as np
+import rasterio
+from rasterio.transform import from_bounds
+from pyproj import CRS, Transformer
+import logging
 
-# File paths
-input_file = "3RIMG_04SEP2024_1015_L1C_ASIA_MER_V01R00.h5"
-bands = {
-    "VIS": "//IMG_VIS",
-    "MIR": "//IMG_MIR",
-    "SWIR": "//IMG_SWIR",
-    "TIR1": "//IMG_TIR1",
-    "TIR2": "//IMG_TIR2",
-    "WV": "//IMG_WV",
-}
-georef_params = {
-    "ulx": 44.5,
-    "uly": 48.1,
-    "lrx": 110,
-    "lry": -7.4,
-    "srs": "EPSG:4326",
-}
-webmercator_srs = "EPSG:3857"
-optimized_params = ["TILED=YES", "COMPRESS=DEFLATE"]
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-# Georeference bands and reproject to Web Mercator
-for band_name, dataset_path in bands.items():
-    # Extract band
-    output_tif = f"IMG_{band_name}.tif"
-    band_ds = gdal.Open(f'HDF5:"{input_file}":{dataset_path}')
-    gdal.Translate(output_tif, band_ds, format="GTiff")
-    band_ds = None  # Close dataset
+def extract_and_project_subdatasets(h5_file_path, output_dir):
+    """
+    Extract and project base image subdatasets from HDF5 file using Mercator projection
+    """
+    # Base image keys to process
+    BASE_IMAGES = ['IMG_MIR', 'IMG_SWIR', 'IMG_TIR1', 'IMG_TIR2', 'IMG_VIS', 'IMG_WV']
+    
+    proj_params = {
+        'proj': 'merc',
+        'lon_0': 77.25,
+        'lat_ts': 17.75,
+        'x_0': 0,
+        'y_0': 0,
+        'a': 6378137,
+        'b': 6356752.3142,
+        'units': 'm'
+    }
 
-    # Georeference
-    georef_tif = f"IMG_{band_name}_georef.tif"
-    gdal.Translate(
-        georef_tif,
-        output_tif,
-        outputBounds=[georef_params["ulx"], georef_params["uly"], georef_params["lrx"], georef_params["lry"]],
-        outputSRS=georef_params["srs"]
+    crs = CRS.from_dict(proj_params)
+    
+    bounds = {
+        'left': 44.5,
+        'right': 110.0,
+        'bottom': -10.0,
+        'top': 45.5
+    }
+
+    transformer = Transformer.from_crs(
+        CRS.from_epsg(4326),
+        crs,
+        always_xy=True
     )
 
-    # Reproject to Web Mercator
-    webmercator_tif = f"IMG_{band_name}_webmercator.tif"
-    gdal.Warp(webmercator_tif, georef_tif, dstSRS=webmercator_srs)
+    left, bottom = transformer.transform(bounds['left'], bounds['bottom'])
+    right, top = transformer.transform(bounds['right'], bounds['top'])
 
-    # Optimize for Google Maps
-    optimized_tif = f"IMG_{band_name}_optimized.tif"
-    gdal.Translate(optimized_tif, webmercator_tif, creationOptions=optimized_params)
+    with h5py.File(h5_file_path, 'r') as h5f:
+        for key in BASE_IMAGES:
+            try:
+                if key not in h5f:
+                    logger.warning(f"Skipping {key} - not found in file")
+                    continue
+                    
+                logger.info(f"Processing {key}")
+                
+                data = h5f[key][:]
+                data = np.squeeze(data)
+                
+                if len(data.shape) != 2:
+                    logger.warning(f"Skipping {key} - unexpected shape {data.shape}")
+                    continue
+                
+                logger.info(f"Data shape: {data.shape}")
+                
+                scale_factor = h5f[key].attrs.get(f'{key}_lab_radiance_scale_factor', 1.0)
+                add_offset = h5f[key].attrs.get(f'{key}_lab_radiance_add_offset', 0.0)
+                
+                data = data * scale_factor + add_offset
+                
+                output_path = f"{output_dir}/{key}.tif"
+                
+                transform = from_bounds(
+                    left, bottom, right, top,
+                    data.shape[1], data.shape[0]
+                )
+                
+                with rasterio.open(
+                    output_path,
+                    'w',
+                    driver='GTiff',
+                    height=data.shape[0],
+                    width=data.shape[1],
+                    count=1,
+                    dtype=data.dtype,
+                    crs=crs.to_wkt(),
+                    transform=transform,
+                ) as dst:
+                    dst.write(data, 1)
+                    dst.update_tags(**{
+                        'WAVELENGTH': h5f[key].attrs.get(f'{key}_central_wavelength', ''),
+                        'UNITS': h5f[key].attrs.get(f'{key}_RADIANCE_units', '')
+                    })
+                logger.info(f"Successfully written {output_path}")
+                
+            except Exception as e:
+                logger.error(f"Error processing {key}: {str(e)}")
+                continue
 
-# Verify results
-for band_name in bands.keys():
-    optimized_tif = f"IMG_{band_name}_optimized.tif"
-    info = gdal.Info(optimized_tif, format="json")
-    print(f"Info for {optimized_tif}:")
-    print(info)
+if __name__ == "__main__":
+    h5_file = "3RIMG_04SEP2024_1015_L1C_ASIA_MER_V01R00.h5"
+    output_dir = "projected_data"
+    
+    import os
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        
+    extract_and_project_subdatasets(h5_file, output_dir)
