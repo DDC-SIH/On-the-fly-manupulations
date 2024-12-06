@@ -22,7 +22,7 @@ def process_satellite_subdataset(input_h5_file, subdataset, output_dir):
     temp_tif = os.path.join(output_dir, f'{subdataset}_temp.tif')
     final_tif = os.path.join(output_dir, f'{subdataset}_region_cog.tif')
     
-    geos_srs = '+proj=geos +h=35782063 +a=6378137.0 +b=6356752.3 +lon_0=82 +no_defs'
+    geos_srs = '+proj=geos +h=35782063 +a=6378137.0 +b=6356752.3142 +lon_0=74.16 +no_defs'
     
     translate_options = gdal.TranslateOptions(
         format='VRT',
